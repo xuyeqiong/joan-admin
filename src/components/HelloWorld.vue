@@ -1,13 +1,57 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps<{ msg: string }>()
+const prop = defineProps({
+  msg: {
+    type: String,
+    default: 'ddd'
+  }
+})
+const emit = defineEmits(['increment'])
+// const msg = '123'
+/* const count = ref(0)
+interface User {
+      name:String
+      age:Number
+    } */
+/* defineComponent({
+  name: 'HelloWorld',
+  props: {
+    message: {
+      type: String,
+      required: true
+    },
+    abc: {
+      type: Number,
+      required: true
+    },
+    obj: {
+      type: Object as PropType<User>,
+      default: () => {}
+    }
+  },
 
-const count = ref(0)
+  setup (props) {
+    // props.abc
+    // props.obj
+    props.message.split('') // 正确, 'message' 被声明为字符串
+  }
+}) */
+console.log('de', prop.msg)
+const count = ref(100)
+const increment = () => {
+  count.value++
+  emit('increment')
+}
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <p>{{ count }}</p>
+  <p>{{ prop.msg }}</p>
+  <button @click="increment">
+    increment
+  </button>
+  <h1>msg:{{ msg }}</h1>
 
   <p>
     Recommended IDE setup:
