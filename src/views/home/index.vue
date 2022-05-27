@@ -1,15 +1,10 @@
 <template>
   <h1>首页</h1>
-  <p>{{ $store.state.count }}</p>
-  <p>{{ store.state.count }}</p>
-  <p>{{ $store.state }}</p>
 </template>
 
 <script lang="ts" setup>
-// import { useStore } from 'vuex'
-import { useStore } from '../../store'
-const store = useStore()
-console.log(store.state.count)
+import User from '@/api/user'
+console.log(User)
 </script>
 
 <style lang="scss" scoped></style>
