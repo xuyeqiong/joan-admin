@@ -1,10 +1,20 @@
 <template>
-  <h1>首页</h1>
+  <h1>登录</h1>
 </template>
 
 <script lang="ts" setup>
-import User from '@/api/user'
-console.log(User)
+import { getLoginInfo } from '@api/common'
+import { onMounted } from '@vue/runtime-core'
+
+onMounted(() => {
+  getLoginInfo().then(res => {
+    console.log(res)
+  })
+})
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1{
+  color:$color;
+}
+</style>
